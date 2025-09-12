@@ -15,6 +15,9 @@ int main() {
     return 0; 
 }
 
+// enterArrayData(double* arr) populates a dynamic double array with values from the console
+// arguments: double* arr
+// returns: None
 void enterArrayData(double* arr) { 
     cout << "Data Entry for the array:" << endl; 
     for(int i = 0; i < SIZE; i++) { 
@@ -23,6 +26,9 @@ void enterArrayData(double* arr) {
     }
 }
 
+// outputArrayData(double* arr) ouputs content of dynamic double array to console 
+// arguments: double* arr
+// returns: None
 void outputArrayData(double* arr) { 
 
 }
