@@ -3,15 +3,24 @@
 #include <iostream>
 using namespace std;
 
+const int SIZE = 5; 
 void enterArrayData(double* arr); 
 void outputArrayData(double* arr);
 
 int main() {
+    double* arrPtr = new double[SIZE]; 
+    enterArrayData(arrPtr); 
+    cout << "data 1: " << arrPtr[1]; 
+    delete [] arrPtr; 
     return 0; 
 }
 
 void enterArrayData(double* arr) { 
-
+    cout << "Data Entry for the array:" << endl; 
+    for(int i = 0; i < SIZE; i++) { 
+        cout << "\t > Element #" << i << ": "; 
+        cin >> arr[i];
+    }
 }
 
 void outputArrayData(double* arr) { 
