@@ -6,11 +6,13 @@ using namespace std;
 const int SIZE = 5; 
 void enterArrayData(double* arr); 
 void outputArrayData(double* arr);
+double sumArray(double* arr);
 
 int main() {
     double* arrPtr = new double[SIZE]; 
     enterArrayData(arrPtr); 
-    cout << "data 1: " << arrPtr[1]; 
+    outputArrayData(arrPtr);
+    cout << "Sum of values: " << sumArray(arrPtr); 
     delete [] arrPtr; 
     return 0; 
 }
@@ -24,11 +26,28 @@ void enterArrayData(double* arr) {
         cout << "\t > Element #" << i << ": "; 
         cin >> arr[i];
     }
+    cout << "Data Entry Complete." << endl;
 }
 
-// outputArrayData(double* arr) ouputs content of dynamic double array to console 
+// outputArrayData(double* arr) outputs content of dynamic double array to console 
 // arguments: double* arr
 // returns: None
 void outputArrayData(double* arr) { 
-
+    cout << "Outputting array elements: "; 
+    for(int i = 0; i < SIZE; i++) { 
+        cout << arr[i] << " ";
+    }
+    cout << endl; 
 }
+
+// sumArray(double* arr) calculates and returns the sum of the array
+// arguments: double* arr
+// returns: double for the sum of the array
+double sumArray(double* arr) { 
+    double sum = 0; 
+    for(int i = 0; i < SIZE; i++) { 
+        sum += arr[i];
+    }
+    return sum; 
+}
+
