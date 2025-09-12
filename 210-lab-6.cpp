@@ -21,10 +21,20 @@ int main() {
 // arguments: double* arr
 // returns: None
 void enterArrayData(double* arr) { 
+    const int CHAR_SKIP = 100; 
     cout << "Data Entry for the array:" << endl; 
     for(int i = 0; i < SIZE; i++) { 
         cout << "\t > Element #" << i << ": "; 
+        double a;
         cin >> arr[i];
+        while (arr[i] == 0) {
+            cout << "Invalid input, please enter a positive number: ";
+            cin.clear();
+            cin.ignore(CHAR_SKIP, '\n');
+            cin >> arr[i]; 
+        } 
+        // clears any extra input
+        cin.ignore(CHAR_SKIP, '\n');
     }
     cout << "Data Entry Complete." << endl;
 }
