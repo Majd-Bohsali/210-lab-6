@@ -24,17 +24,14 @@ void enterArrayData(double* arr) {
     const int CHAR_SKIP = 100; 
     cout << "Data Entry for the array:" << endl; 
     for(int i = 0; i < SIZE; i++) { 
-        cout << "\t > Element #" << i << ": "; 
-        double a;
-        cin >> arr[i];
-        while (arr[i] == 0) {
-            cout << "Invalid input, please enter a positive number: ";
+        cout << "\t > Element #" << i << ": ";
+        cin >> *(arr + i);
+        while (cin.fail()) {
+            cout << "Invalid input, please enter a number: ";
             cin.clear();
             cin.ignore(CHAR_SKIP, '\n');
-            cin >> arr[i]; 
+            cin >> *(arr + i); 
         } 
-        // clears any extra input
-        cin.ignore(CHAR_SKIP, '\n');
     }
     cout << "Data Entry Complete." << endl;
 }
@@ -45,7 +42,7 @@ void enterArrayData(double* arr) {
 void outputArrayData(double* arr) { 
     cout << "Outputting array elements: "; 
     for(int i = 0; i < SIZE; i++) { 
-        cout << arr[i] << " ";
+        cout << *(arr + i) << " ";
     }
     cout << endl; 
 }
@@ -56,7 +53,7 @@ void outputArrayData(double* arr) {
 double sumArray(double* arr) { 
     double sum = 0; 
     for(int i = 0; i < SIZE; i++) { 
-        sum += arr[i];
+        sum += *(arr + i);
     }
     return sum; 
 }
